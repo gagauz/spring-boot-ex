@@ -3,10 +3,12 @@ package hello;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import org.springframework.data.solr.repository.config.EnableSolrRepositories;
 
 @Configuration
 @EnableMongoRepositories(basePackages = { "hello.repository.mongodb" })
 @EnableElasticsearchRepositories(basePackages = { "hello.repository.elasticsearch" })
+@EnableSolrRepositories(basePackages = { "hello.repository.solr" })
 public class Config {
     //    @Bean
     //    public MongoClient mongoClient() {
@@ -16,5 +18,10 @@ public class Config {
     //    @Bean
     //    public MongoTemplate mongoTemplate() {
     //        return new MongoTemplate(mongoClient(), "user");
+    //    }
+    //
+    //    @Bean
+    //    public ElasticsearchTemplate elasticsearchTemplate(@Autowired NodeClient nodeClient) {
+    //        return new ElasticsearchTemplate(nodeClient);
     //    }
 }

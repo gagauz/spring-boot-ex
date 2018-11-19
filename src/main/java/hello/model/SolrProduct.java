@@ -1,19 +1,19 @@
 package hello.model;
 
-import org.bson.codecs.pojo.annotations.BsonId;
+import org.apache.solr.client.solrj.beans.Field;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.solr.core.mapping.SolrDocument;
 
-@Document("product")
-@org.springframework.data.elasticsearch.annotations.Document(indexName = "product_index", type = "product")
 @SolrDocument(collection = "product")
-public class Product {
+public class SolrProduct {
     @Id
-    @BsonId
+    @Field
     private String id;
+    @Field
     private String name;
+    @Field
     private double price;
+    @Field
     private int qty;
 
     public String getId() {

@@ -1,5 +1,7 @@
 package hello.controller;
 
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+
 import java.io.IOException;
 
 import javax.annotation.Resource;
@@ -22,7 +24,7 @@ public class EsController {
     @Resource
     private ProductMongoRepository productMongoRepository;
 
-    @RequestMapping("/es")
+    @RequestMapping(path = "/es", method = GET)
     public String es() throws IOException {
         StringBuilder sb = new StringBuilder("Greetings from Spring Boot!\n{\n");
 
@@ -34,7 +36,7 @@ public class EsController {
         return sb.toString();
     }
 
-    @RequestMapping("/es/index")
+    @RequestMapping(path = "/es/index", method = GET)
     public String esIndex() {
 
         int start = 0;

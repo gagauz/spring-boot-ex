@@ -1,5 +1,7 @@
 package hello.controller;
 
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+
 import javax.annotation.Resource;
 
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -17,7 +19,7 @@ public class HelloController {
     @Resource
     private MongoTemplate mongoTemplate;
 
-    @RequestMapping("/")
+    @RequestMapping(path = "/", method = GET)
     public String index() {
         StringBuilder sb = new StringBuilder("Greetings from Spring Boot!\n{\n");
         //        userRepository.findAll(PageRequest.of(0, 10)).forEach(u -> sb.append(u + ",\n"));
