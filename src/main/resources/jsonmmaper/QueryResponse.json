@@ -1,0 +1,25 @@
+org.apache.solr.client.solrj.response.QueryResponse {
+	results,
+	facetFields as facets,
+	intervalFacets as intervals,
+	facetRanges as ranges
+}
+
+org.apache.solr.common.SolrDocument {
+	fieldValuesMap as fields
+}
+
+org.apache.solr.client.solrj.response.FacetField {
+	name,
+	valueCount as count
+}
+
+org.apache.solr.client.solrj.response.IntervalFacet {
+	field,
+	intervals
+}
+
+org.apache.solr.client.solrj.response.IntervalFacet$Count {
+	key,
+	count
+}

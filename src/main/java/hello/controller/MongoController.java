@@ -30,12 +30,15 @@ public class MongoController {
         return sb.toString();
     }
 
+    static double[] prices = { 10, 20, 30, 40 };
+
     @RequestMapping(path = "/mongo/createProducts", method = GET)
     public String createProducts(@RequestParam int count) {
         for (int i = 0; i < count; i++) {
             Product u = new Product();
             u.setName("Prod X " + i);
             u.setQty(i);
+            u.setPrice(prices[i % 4]);
             productMongoRepository.insert(u);
         }
         return "DONE, inserted " + count + " products";
