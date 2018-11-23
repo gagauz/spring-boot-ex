@@ -72,7 +72,9 @@ public class SolrController {
     public String solrQuery(@RequestParam String query, @RequestParam String facet, @RequestParam String intervals) throws Exception {
         SolrQuery solrQuery = new SolrQuery()
                 .setQuery(query)
-                .addIntervalFacets(facet, intervals.split(";"));
+                .addIntervalFacets(facet, intervals.split(";"))
+                .setFacetMinCount(1)
+                .setFacetLimit(1);
         QueryResponse response = solrClient.query("product", solrQuery);
         JsonMapper mapper = JsonMapperImpl.instanse(getClass().getResourceAsStream("/jsonmmaper/QueryResponse.json"));
         StringWriter sw = new StringWriter();
