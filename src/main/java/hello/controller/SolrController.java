@@ -4,7 +4,6 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 import java.io.IOException;
-import java.io.StringWriter;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,17 +13,12 @@ import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.request.CoreAdminRequest;
 import org.apache.solr.client.solrj.response.CoreAdminResponse;
-import org.apache.solr.client.solrj.response.QueryResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.xl0e.json.mapper.JsonMapper;
-import com.xl0e.json.mapper.JsonMapperImpl;
-import com.xl0e.json.writer.JsonIndentWriter;
 
 import hello.model.Product;
 import hello.model.SolrProduct;
@@ -75,11 +69,12 @@ public class SolrController {
                 .addIntervalFacets(facet, intervals.split(";"))
                 .setFacetMinCount(1)
                 .setFacetLimit(1);
-        QueryResponse response = solrClient.query("product", solrQuery);
-        JsonMapper mapper = JsonMapperImpl.instanse(getClass().getResourceAsStream("/jsonmmaper/QueryResponse.json"));
-        StringWriter sw = new StringWriter();
-        mapper.map(response, new JsonIndentWriter(sw));
-        return sw.toString();
+        //        QueryResponse response = solrClient.query("product", solrQuery);
+        //        JsonMapper mapper = JsonMapperImpl.instanse(getClass().getResourceAsStream("/jsonmmaper/QueryResponse.json"));
+        //        StringWriter sw = new StringWriter();
+        //        mapper.map(response, new JsonIndentWriter(sw));
+        //        return sw.toString();
+        return null;
     }
 
     @RequestMapping(path = "/solr/index", method = GET)
