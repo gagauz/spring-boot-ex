@@ -69,6 +69,12 @@
 			<artifactId>activemq-client</artifactId>
 			<version>5.15.8</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-all</artifactId>
+			<version>4.1.32.Final</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
